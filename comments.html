@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>التعليقات | أكاديمية وذَكِّر</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav class="navbar">
+    <a href="index.html">الرئيسية</a>
+    <a href="certificates.html">الشهادات</a>
+    <a href="comments.html">التعليقات</a>
+    <a href="register.html">التسجيل</a>
+</nav>
+
+<section class="comments-section">
+
+<!-- متوسط التقييم -->
+<div class="rating-summary">
+    <span id="averageRating">0.0</span>
+    <div class="stars-display" id="avgStars"></div>
+    <small>متوسط تقييم الأكاديمية</small>
+</div>
+
+
+
+
+    <h2>اراء الطلاب</h2>
+
+    <!-- إضافة تعليق -->
+    <div class="comment-form">
+        <input type="text" id="commentName" placeholder="الاسم">
+        <textarea id="commentText" placeholder="اكتب تعليقك هنا"></textarea>
+        <button onclick="addComment()">إضافة التعليق</button>
+    </div>
+
+    <!-- تقييم الطالب -->
+<div class="rating-box">
+    <p>قيّم الأكاديمية</p>
+    <div class="stars-input" id="ratingStars">
+        <span data-rate="1">★</span>
+        <span data-rate="2">★</span>
+        <span data-rate="3">★</span>
+        <span data-rate="4">★</span>
+        <span data-rate="5">★</span>
+    </div>
+</div>
+
+    <!-- صندوق التعليقات -->
+    <div id="commentsBox" class="comments-box"></div>
+</section>
+
+
+<script src="comments.js"></script>
+</body>
+</html>

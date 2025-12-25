@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>تسجيل الطالب | أكاديمية وذَكِّر</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav class="navbar">
+    <a href="index.html">الرئيسية</a>
+    <a href="certificates.html">الشهادات</a>
+    <a href="comments.html">التعليقات</a>
+    <a href="register.html">التسجيل</a>
+</nav>
+
+<div class="login-page">
+    <form class="login-box" onsubmit="sendWhatsApp(event)">
+        <h2>تسجيل الطالب</h2>
+        <p class="login-sub">يرجى إدخال البيانات للتسجيل</p>
+
+        <input type="text" id="name" placeholder="الاسم الكامل" required>
+        <input type="number" id="age" placeholder="العمر" required>
+
+        <input type="text" id="country" placeholder="البلد" required>
+        <input type="tel" id="phone" placeholder="رقم التواصل" required>
+
+      <select id="savedBefore" required>
+            <option value="">هل تم الحفظ من قبل؟</option>
+            <option value="نعم">نعم</option>
+            <option value="لا">لا</option>
+        </select>
+
+        <select id="lessons" required>
+    <option value="">عدد المحاضرات شهريًا</option>
+    <option value="4">4 محاضرات</option>
+    <option value="8">8 محاضرات</option>
+    <option value="12">12 محاضرة</option>
+</select>
+
+        <button type="submit">تسجيل</button>
+
+        <p id="successMessage" class="success-message">
+            ✅ تم التسجيل بنجاح، وسيتم التواصل معكم عبر الواتساب
+        </p>
+    </form>
+</div>
+
+<script>
+function sendWhatsApp(e) {
+    e.preventDefault();
+
+    const name = document.getElementById("name").value;
+    const age = document.getElementById("age").value;
+    const saved = document.getElementById("savedBefore").value;
+    const country = document.getElementById("country").value;
+    const phone = document.getElementById("phone").value;
+
+    const message =
+        `تسجيل طالب جديد:%0A` +
+        `الاسم: ${name}%0A` +
+        `العمر: ${age}%0A` +
+        `تم الحفظ من قبل: ${saved}%0A` +
+        `البلد: ${country}%0A` +
+        `رقم التواصل: ${phone}`;
+
+    document.getElementById("successMessage").style.display = "block";
+
+    setTimeout(() => {
+        window.open(`https://wa.me/201028199381?text=${message}`, "_blank");
+    }, 1000);
+}
+</script>
+
+</body>
+</html>

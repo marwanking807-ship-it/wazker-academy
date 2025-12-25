@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>الطلاب المسجلون</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav class="navbar">
+    <a href="index.html">الرئيسية</a>
+    <a href="certificates.html">الشهادات</a>
+    <a href="comments.html">التعليقات</a>
+    <a href="register.html">التسجيل</a>
+    <a href="students.html">الطلاب</a>
+</nav>
+
+<section>
+    <h2>الطلاب المسجلون</h2>
+    <div id="list"></div>
+</section>
+
+<script>
+let students = JSON.parse(localStorage.getItem("students")) || [];
+let list = document.getElementById("list");
+
+students.forEach(s => {
+    list.innerHTML += `
+    <div class="comment">
+        <strong>${s.name}</strong><br>
+        العمر: ${s.age}<br>
+        حفظ سابق: ${s.saved}<br>
+        البلد: ${s.country}
+    </div>`;
+});
+</script>
+
+</body>
+</html>
